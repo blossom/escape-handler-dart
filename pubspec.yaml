@@ -1,7 +1,9 @@
 name: escape_handler
-version: 0.0.1
+version: 0.0.2
 author: Nikolaus Graf <nik@blossom.io>
 description: An easy-to-use library for managing widget behaviour when the ESC keyboard event is fired.
 homepage: https://github.com/blossom/escape-handler-dart
+environment:
+  sdk: '>=0.8.10+6 <2.0.0'
 dev_dependencies:
-  unittest: any
+  unittest: '>=0.9.0 <0.10.0'
