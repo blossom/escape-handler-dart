@@ -4,13 +4,12 @@ import 'dart:html';
 class EscapeHandler {
   static final EscapeHandler _escapeHandler = new EscapeHandler._internal();
   Map<int, Completer> _widgets = new Map<int, Completer>();
-  var _keyUpSubscription = KeyEvent.keyUpEvent.forTarget(document.body).listen(null);
 
   factory EscapeHandler() {
     return _escapeHandler;
   }
 
-  void _keyHandler(KeyEvent event) {
+  void _keyHandler(KeyboardEvent event) {
     if (event.keyCode == KeyCode.ESC) {
       int youngestTimestamp = _widgets.keys.fold(0, (prev, timestamp) {
         return (prev > timestamp) ? prev : timestamp;
@@ -32,6 +31,8 @@ class EscapeHandler {
   }
 
   EscapeHandler._internal() {
-    _keyUpSubscription.onData(_keyHandler);
+    document.onKeyUp.listen(_keyHandler);
+    // var keyUpStream = KeyEvent.keyUpEvent.forTarget(document.body);
+    // var keyUpSubscription = keyUpStream.listen(_keyHandler);
   }
 }
