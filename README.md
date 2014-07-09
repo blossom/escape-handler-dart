@@ -11,8 +11,8 @@ is fired.
 
 	// when a widget becomes active
 	var elementTimestamp = new DateTime.now().millisecondsSinceEpoch;
-	var escapePressed = escapeHandler.addWidget(elementTimestamp);
-    deactivateFuture.then((_) {
+	var escapePressedForCurrentComponent = escapeHandler.addWidget(elementTimestamp);
+    escapePressedForCurrentComponent.then((_) {
       // undo the changes or close the widget
     });
 
