@@ -15,7 +15,9 @@ class EscapeHandler {
         return (prev > timestamp) ? prev : timestamp;
       });
       var closeWidgetCompleter = _widgets.remove(youngestTimestamp);
-      closeWidgetCompleter.complete();
+      if (closeWidgetCompleter != null) {
+        closeWidgetCompleter.complete();
+      }
     }
   }
 
